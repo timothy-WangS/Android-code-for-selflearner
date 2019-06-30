@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--使用res/value/style设置共同样式的属性-->
+    <TextView
+        android:id="@+id/tv_hw"
+        style="@style/MyText"
+        android:text="@string/hello_world" />
+
+    <TextView
+        android:id="@+id/tv_ha"
+        style="@style/MyText"
+        app:layout_constraintTop_toBottomOf="@id/tv_hw"
+        android:text="@string/hello_android" />
+
+    <Button
+        android:id="@+id/btn_dlg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_ha"
+        android:onClick="dialog"
+        android:text="Dialog"/>
+
+    <Button
+        android:id="@+id/btn_rlg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_dlg"
+        android:onClick="radDlg"
+        android:text="Radio Dlg"/>
+
+    <Button
+        android:id="@+id/btn_clg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_rlg"
+        android:onClick="chkDlg"
+        android:text="Chk Dlg"/>
+
+    <Button
+        android:id="@+id/btn_plg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_clg"
+        android:onClick="prgrsDlg"
+        android:text="Prgrs Dlg"/>
+
+    <Button
+        android:id="@+id/btn_notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_plg"
+        android:onClick="notif"
+        android:text="Notif"/>
+
+</android.support.constraint.ConstraintLayout>

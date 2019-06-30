@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <!--oneshot为true只播放一遍，false循环-->
+    <!--资源图片，单张时长ms-->
+    <item android:drawable="@drawable/d_anim1" android:duration="200"/>
+    <item android:drawable="@drawable/d_anim2" android:duration="200"/>
+    <item android:drawable="@drawable/d_anim3" android:duration="200"/>
+</animation-list>

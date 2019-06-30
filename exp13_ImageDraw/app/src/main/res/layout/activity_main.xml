@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Img"
+        android:onClick="loadimg"/>
+
+    <Button
+        android:id="@+id/btn_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_load"
+        android:text="Set Img"
+        android:onClick="setimg"/>
+
+    <Button
+        android:id="@+id/btn_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_set"
+        android:text="Draw Img"
+        android:onClick="drawrimg"/>
+
+    <Button
+        android:id="@+id/btn_c"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_draw"
+        android:text="C"
+        android:onClick="color"/>
+
+    <Button
+        android:id="@+id/btn_w"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_c"
+        android:text="W"
+        android:onClick="width"/>
+
+    <Button
+        android:id="@+id/btn_s"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_w"
+        android:text="S"
+        android:onClick="save"/>
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_load"/>
+
+</android.support.constraint.ConstraintLayout>

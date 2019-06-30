@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.timothy.exp09_brdcstipdial">
+    <!--监听电话权限-->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!--监听短信权限-->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!--监听开机-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--创建一个监听外拨电话广播接收者-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.IPDialReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
+        <!--SD卡监听-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.SDCardReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <!--短信监听-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.SMSReceiver">
+            <intent-filter>
+                <!--涉及用户隐私，在代码提示中没有，但可以用-->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <!--应用安装监听-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.InstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <!--开机启动监听-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.TurnonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <!--接受自定义无序广播-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.BcReceiver">
+            <intent-filter>
+                <!--和发送action一致-->
+                <action android:name="com.example.timothy.bcsend"/>
+            </intent-filter>
+        </receiver>
+        <!--接受自定义有序广播-->
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.OrdBCReceiver_1">
+            <!--priority优先级，数越大越早收到广播-->
+            <intent-filter android:priority="1000">
+                <!--和发送action一致-->
+                <action android:name="com.example.timothy.ordsend"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.OrdBCReceiver_2">
+            <!--priority优先级，数越大越早收到广播-->
+            <intent-filter android:priority="800">
+                <!--和发送action一致-->
+                <action android:name="com.example.timothy.ordsend"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.timothy.exp09_brdcstipdial.OrdBCReceiver_3">
+            <!--priority优先级，数越大越早收到广播-->
+            <intent-filter android:priority="500">
+                <!--和发送action一致-->
+                <action android:name="com.example.timothy.ordsend"/>
+            </intent-filter>
+        </receiver>
+        <!--应动态注册，不需要在这注册-->
+        <!--<receiver android:name="com.example.timothy.exp09_brdcstipdial.ScreenLightReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SCREEN_ON"/>-->
+                <!--<action android:name="android.intent.action.SCREEN_OFF"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+    </application>
+
+</manifest>

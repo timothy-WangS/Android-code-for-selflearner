@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LogInSD</string>
+    <string name="user_name">Enter User Name Here</string>
+    <string name="password">Enter Password Here</string>
+    <string name="save_namepass">Save Password</string>
+    <string name="login">Log In</string>
+</resources>

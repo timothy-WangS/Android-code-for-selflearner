@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StyleDialog</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="hello_android">Hello Android!</string>
+</resources>

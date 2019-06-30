@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.timothy.hideintent">
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:icon="@mipmap/ic_launcher"
+            android:label="HideIntentMain">
+            <intent-filter>
+                <!--同时配置主入口和启动器会成为启动activity-->
+                <!--如果是启动activity，启动图标和软件名使用当前icon和label，否则默认用application的-->
+                <!--主入口-->
+                <action android:name="android.intent.action.MAIN" />
+                <!--启动器(桌面图标)-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--在Manifest申明-->
+        <!--隐式意图，通过匹配intent filter，只要action name和data scheme, data mimeType被intent.set匹配，就可以开启-->
+        <!--隐式意图不是通过activity name启动的，而是匹配intent filter-->
+        <!--data 可以不写，也能打开意图，但传不了数据；也可以只写scheme或只写mimeType，写哪些就要匹配哪些，都写都要匹配-->
+        <!--若想使用隐式意图，必须要先在Manifest写对应activity和intent filter-->
+        <!--隐式意图一般用于将自己应用提供给其他应用，或调用其他应用-->
+        <activity android:name=".SecondActivity"
+            android:label="Sec">
+            <intent-filter>
+                <!--意图名，可用系统定义也可自定义，此处自定义字符串为避免与其他人的重复，用域名+名称的方式-->
+                <action android:name="com.example.timothy.second"/>
+                <!--没什么用但必须写，不需要匹配-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <!--意图传过来的数据格式,自定义-->
+                <data android:scheme="example"
+                    android:mimeType="timothy/example"/>
+            </intent-filter>
+        </activity>
+
+        <!--显式意图，直接指定activity，不匹配intent filter-->
+        <!--显式意图一般用于自己应用内部开启新界面-->
+        <activity android:name=".ThirdActivity"
+            android:label="Thr">
+        </activity>
+    </application>
+
+</manifest>
